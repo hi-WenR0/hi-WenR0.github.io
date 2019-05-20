@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="PHP反序列化漏洞是一种常见的漏洞，在本篇文章中，希望能深入简出的让各位即使没有安全背景的读者明白什么是PHP反序列化漏洞，以及如何利用。
+如有错误不足之处，请不吝指教。
+你需要的前置知识
+PHP类与对象
+PHP魔术方法
+PHP反序列化方法
+
+PHP类与对象先从最简单的开始。
+在PHP中，定义一个类">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="WenR0">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="PHP反序列化漏洞详细教程及实例（上）">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="PHP反序列化漏洞是一种常见的漏洞，在本篇文章中，希望能深入简出的让各位即使没有安全背景的读者明白什么是PHP反序列化漏洞，以及如何利用。
+如有错误不足之处，请不吝指教。
+你需要的前置知识
+PHP类与对象
+PHP魔术方法
+PHP反序列化方法
+
+PHP类与对象先从最简单的开始。
+在PHP中，定义一个类">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="WenR0&#39;s Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://hi-wenr0.github.iohttp://img1.liulangxingqiu.com/blog-banner.jpeg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="https://hi-wenr0.github.iohttp://img1.liulangxingqiu.com/blog-banner.jpeg">
+    
+
+    <!-- Title -->
+    
+    <title>PHP反序列化漏洞详细教程及实例（上） - WenR0&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WenR0's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.liulangxingqiu.com">
+                            
+                                Site
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://img1.liulangxingqiu.com/blog-banner.jpeg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>PHP反序列化漏洞详细教程及实例（上）</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-12-25
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/PHP反序列化漏洞/">#PHP反序列化漏洞</a> <a href="/tags/网络安全/">#网络安全</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>PHP反序列化漏洞是一种常见的漏洞，在本篇文章中，希望能深入简出的让各位即使没有安全背景的读者明白什么是PHP反序列化漏洞，以及如何利用。</p>
+<p>如有错误不足之处，请不吝指教。</p>
+<h2 id="你需要的前置知识"><a href="#你需要的前置知识" class="headerlink" title="你需要的前置知识"></a>你需要的前置知识</h2><ol>
+<li>PHP类与对象</li>
+<li>PHP魔术方法</li>
+<li>PHP反序列化方法</li>
+</ol>
+<h3 id="PHP类与对象"><a href="#PHP类与对象" class="headerlink" title="PHP类与对象"></a>PHP类与对象</h3><p>先从最简单的开始。</p>
+<p>在PHP中，定义一个类，和定义一个类的方法。</p>
+<p>一个简单的例子：</p>
+<p><img src="http://img1.liulangxingqiu.com/2.png" alt></p>
+<h3 id="PHP魔术方法"><a href="#PHP魔术方法" class="headerlink" title="PHP魔术方法"></a>PHP魔术方法</h3><p>在PHP官方网站中的定义：</p>
+<p><a href="http://php.net/manual/zh/language.oop5.decon.php#object.construct" target="_blank" rel="noopener">__construct()</a>， <a href="http://php.net/manual/zh/language.oop5.decon.php#object.destruct" target="_blank" rel="noopener">__destruct()</a>， <a href="http://php.net/manual/zh/language.oop5.overloading.php#object.call" target="_blank" rel="noopener">__call()</a>， <a href="http://php.net/manual/zh/language.oop5.overloading.php#object.callstatic" target="_blank" rel="noopener">__callStatic()</a>， <a href="http://php.net/manual/zh/language.oop5.overloading.php#object.get" target="_blank" rel="noopener">__get()</a>， <a href="http://php.net/manual/zh/language.oop5.overloading.php#object.set" target="_blank" rel="noopener">__set()</a>， <a href="http://php.net/manual/zh/language.oop5.overloading.php#object.isset" target="_blank" rel="noopener">__isset()</a>， <a href="http://php.net/manual/zh/language.oop5.overloading.php#object.unset" target="_blank" rel="noopener">__unset()</a>， <a href="http://php.net/manual/zh/language.oop5.magic.php#object.sleep" target="_blank" rel="noopener">__sleep()</a>， <a href="http://php.net/manual/zh/language.oop5.magic.php#object.wakeup" target="_blank" rel="noopener">__wakeup()</a>， <a href="http://php.net/manual/zh/language.oop5.magic.php#object.tostring" target="_blank" rel="noopener">__toString()</a>，<a href="http://php.net/manual/zh/language.oop5.magic.php#object.invoke" target="_blank" rel="noopener">__invoke()</a>， <a href="http://php.net/manual/zh/language.oop5.magic.php#object.set-state" target="_blank" rel="noopener">__set_state()</a>， <a href="http://php.net/manual/zh/language.oop5.cloning.php#object.clone" target="_blank" rel="noopener">__clone()</a> 和 <a href="http://php.net/manual/zh/language.oop5.magic.php#object.debuginfo" target="_blank" rel="noopener">__debugInfo()</a> 等方法在 PHP 中被称为”魔术方法”（Magic methods）。在命名自己的类方法时不能使用这些方法名，除非是想使用其魔术功能。</p>
+<p>咱们来简单讲解几个魔术方法</p>
+<ol>
+<li>__construst()</li>
+<li>__destruct()</li>
+<li>__toString()</li>
+</ol>
+<p>__construst() 方法在每次创建新对象时会被自动调用</p>
+<p>__destruct() 方法在使用 <a href="http://php.net/manual/zh/function.exit.php" target="_blank" rel="noopener">exit()</a> 终止脚本运行时也会被自动调用</p>
+<p>__toString() 方法在一个类被当成字符串时应怎样回应。例如 <em>echo $obj;</em> 应该显示些什么。</p>
+<p>代码：</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029175823-PHP反序列化漏洞详细教程及实例（上）-3.png" alt><br>输出结果：</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102917599-PHP反序列化漏洞详细教程及实例（上）-4.png" alt="2018102917599-PHP反序列化漏洞详细教程及实例（上）-4"></p>
+<h3 id="PHP对象序列化"><a href="#PHP对象序列化" class="headerlink" title="PHP对象序列化"></a>PHP对象序列化</h3><p>在PHP网站中的定义：</p>
+<p>  所有php里面的值都可以使用函数<a href="http://php.net/manual/zh/function.serialize.php" target="_blank" rel="noopener">serialize()</a>来返回一个包含字节流的字符串来表示。<a href="http://php.net/manual/zh/function.unserialize.php" target="_blank" rel="noopener">unserialize()</a>函数能够重新把字符串变回php原来的值。 序列化一个对象将会保存对象的所有变量，但是不会保存对象的方法，只会保存类的名字。</p>
+<p>简单的理解序列化：就是把一个类的实例变成一个字符串。</p>
+<p>简单的理解反序列化：把一个特殊的字符串转换成一个实例。</p>
+<p>代码：</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029175931-PHP反序列化漏洞详细教程及实例（上）-6.png" alt></p>
+<p>输出结果：</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029175953-PHP反序列化漏洞详细教程及实例（上）-5.png" alt></p>
+<p><strong>高亮部分即为序列化后的对象。</strong></p>
+<p>反序列化的操作：</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918019-PHP反序列化漏洞详细教程及实例（上）-7.png" alt="2018102918019-PHP反序列化漏洞详细教程及实例（上）-7"></p>
+<p>代码执行效果：</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918026-PHP反序列化漏洞详细教程及实例（上）-8.png" alt="2018102918026-PHP反序列化漏洞详细教程及实例（上）-8"></p>
+<p>想要深入了解序列化后的字符的具体意义，请参考这个链接：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://php.net/manual/zh/function.serialize.php</span><br></pre></td></tr></table></figure></p>
+<h2 id="小试牛刀"><a href="#小试牛刀" class="headerlink" title="小试牛刀"></a>小试牛刀</h2><p>通过上面的前置知识，相信大家已经对PHP序列化相关的内容有一个初步的认识。下面来开始分析一个简单的例子。</p>
+<p><img src="http://img1.liulangxingqiu.com/201810291810-PHP反序列化漏洞详细教程及实例（上）-9.png" alt="201810291810-PHP反序列化漏洞详细教程及实例（上）-9"></p>
+<p>这是一个WTFLog 类，调用 loginfo 方法会记录一条记录到access.log文件中，WTF的地方是，当这个类完成它的使命的时候（exit），会删除掉它所记录的文件。</p>
+<p><img src="http://img1.liulangxingqiu.com/201810291819-PHP反序列化漏洞详细教程及实例（上）-11.png" alt="201810291819-PHP反序列化漏洞详细教程及实例（上）-11"></p>
+<p>这里有一个“正常”的业务，pets.php ：</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918115-PHP反序列化漏洞详细教程及实例（上）-10.png" alt="2018102918115-PHP反序列化漏洞详细教程及实例（上）-10"></p>
+<p>该代码的业务目标是从用户处收集序列化后的数据，并进行一些操作。</p>
+<p><strong>该代码段的特点是：直接使用客户端可以控制的输入点（$_GET[‘pet_serialized]），在不进行验证的情况下，直接实例化了这段代码！！</strong></p>
+<p>看我们如何利用这个危险的输入点：</p>
+<p>还记得刚才的WTFLog吧！</p>
+<p>先新创建一个新的poc.php，把 log.php 内的WTFLog类引入进来。</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918146-PHP反序列化漏洞详细教程及实例（上）-12.png" alt="2018102918146-PHP反序列化漏洞详细教程及实例（上）-12"></p>
+<p>index.php 是一个很有用的文件，会输出一句话。</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918153-PHP反序列化漏洞详细教程及实例（上）-13.png" alt="2018102918153-PHP反序列化漏洞详细教程及实例（上）-13"></p>
+<p>运行 poc.php ，得到我们想要的序列化后的WTFLog 字符串。</p>
+<p><img src="http://img1.liulangxingqiu.com/201810291822-PHP反序列化漏洞详细教程及实例（上）-15.png" alt="201810291822-PHP反序列化漏洞详细教程及实例（上）-15"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">O:6:&apos;WTFLog&apos;:1:&#123;s:8:&apos;filename&apos;;s:9:&apos;index.php&apos;;&#125;</span><br></pre></td></tr></table></figure>
+<p>这里利用这个字符串，去调用pets.php</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918225-PHP反序列化漏洞详细教程及实例（上）-17.png" alt="2018102918225-PHP反序列化漏洞详细教程及实例（上）-17"></p>
+<p>本来要删除掉access.log这个文件，却删除了我们的重要文件index.php。</p>
+<p>验证一下：</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918229-PHP反序列化漏洞详细教程及实例（上）-18.png" alt="2018102918229-PHP反序列化漏洞详细教程及实例（上）-18"></p>
+<p>到了这一步，漏洞已经利用完成。</p>
+<p>回顾一下整个漏洞利用的过程：</p>
+<ol>
+<li>需要有一个漏洞触发点 pets.php 内的 $pet = unserialize($_GET[‘pet_serialized’]);</li>
+<li>需要有一个相关联的，有魔术方法（会被自动调用）的类。log.php （WTFLog 内的__destruct函数）</li>
+<li>漏洞的效果取决于__destruct 这个魔术函数内的操作，这里的是可以操控的可以删除的log 的 filename。</li>
+<li>构建poc.php ，利用程序，先序列化后，从可控输入$_GET[‘pet_serialized’]输入进去。</li>
+<li>完成。</li>
+</ol>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>大家从上面的过程中对PHP反序列化的方式及危害有了一个比较直观的理解了。那如何利用PHP反序列化这个漏洞来做更多的事情呢，这里需要看更多的魔术方法的自动触发的情景，根据不同的使用情景（代码实现方式），来定制我们的Poc，如果可控代码中，存在call_user_func() 这个函数，可以实现通过PHP反序列化漏洞来进行任意代码执行。</p>
+<h1 id="结语的下一步"><a href="#结语的下一步" class="headerlink" title="结语的下一步"></a>结语的下一步</h1><p>下一篇文章将会分析一下Typecho 这个很受欢迎的Blog程序的反序列化漏洞的利用。</p>
+<p>Thanks for watching.</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>留言:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/hi-wenr0" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:mr.wenr0@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 WenR0<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'wenr0u';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

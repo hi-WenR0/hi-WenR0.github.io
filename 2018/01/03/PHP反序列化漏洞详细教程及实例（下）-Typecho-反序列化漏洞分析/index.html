@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="大家好，结合上一篇PHP反序列化的文章，炒一下冷饭，给大家分析一下10月份出的 Typecho 反序列化漏洞。
+本文的目的是把反序列化漏洞讲清楚，奶妈级讲解方式，让你看明白。
+
+回顾
+PHP反序列化漏洞详细教程及实例（上）
+示例漏洞利用的过程：
+
+需要有一个漏洞触发点 ：pets.php 内的 $p">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="WenR0">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="PHP反序列化漏洞详细教程及实例（下）  Typecho 反序列化漏洞分析">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="大家好，结合上一篇PHP反序列化的文章，炒一下冷饭，给大家分析一下10月份出的 Typecho 反序列化漏洞。
+本文的目的是把反序列化漏洞讲清楚，奶妈级讲解方式，让你看明白。
+
+回顾
+PHP反序列化漏洞详细教程及实例（上）
+示例漏洞利用的过程：
+
+需要有一个漏洞触发点 ：pets.php 内的 $p">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="WenR0&#39;s Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://hi-wenr0.github.iohttp://img1.liulangxingqiu.com/blog-banner.jpeg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="https://hi-wenr0.github.iohttp://img1.liulangxingqiu.com/blog-banner.jpeg">
+    
+
+    <!-- Title -->
+    
+    <title>PHP反序列化漏洞详细教程及实例（下）  Typecho 反序列化漏洞分析 - WenR0&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WenR0's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.liulangxingqiu.com">
+                            
+                                Site
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://img1.liulangxingqiu.com/blog-banner.jpeg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>PHP反序列化漏洞详细教程及实例（下）  Typecho 反序列化漏洞分析</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-01-03
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/PHP反序列化漏洞/">#PHP反序列化漏洞</a> <a href="/tags/网络安全/">#网络安全</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>大家好，结合上一篇PHP反序列化的文章，炒一下冷饭，给大家分析一下10月份出的 Typecho 反序列化漏洞。</p>
+<p>本文的目的是把反序列化漏洞讲清楚，奶妈级讲解方式，让你看明白。</p>
+<p><span id="more-52"></span></p>
+<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><!-- 让我们先回顾一下[PHP反序列化漏洞详细教程及实例（上）](http://www.wenr0.me/?p=16)中的重要部分： -->
+<a href="/2017/12/25/PHP反序列化漏洞详细教程及实例（上）/" title="PHP反序列化漏洞详细教程及实例（上）">PHP反序列化漏洞详细教程及实例（上）</a>
+<p><strong>示例漏洞利用的过程：</strong></p>
+<ol>
+<li>需要有一个漏洞触发点 ：pets.php 内的 $pet = unserialize($_GET[&#8216;pet_serialized&#8217;]);</li>
+<li>需要有一个相关联的，有魔术方法（会被自动调用）的类。log.php （WTFLog 内的__destruct函数）。</li>
+<li>漏洞的效果取决于__destruct 这个魔术函数内的操作，这里的是可以操控的可以删除的log 的 filename。</li>
+<li>构建poc.php ，利用程序，先序列化后，从可控输入$_GET[&#8216;pet_serialized&#8217;]输入进去。</li>
+<li>完成。</li>
+</ol>
+<h1 id="代码回溯"><a href="#代码回溯" class="headerlink" title="代码回溯"></a>代码回溯</h1><p>在本文编写时，Typecho早已发布了很多新版本，让我们从git logs 中，找到存在漏洞的版本。</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181339-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-2-1.png" alt></p>
+<p>根据漏洞发生时间：10月左右，commit message : 漏洞 来确定具体的commit是哪一个</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918145-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-3-1.png" alt="2018102918145-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-3-1"></p>
+<p>可以看到e277141 是已经修复后的commit，那么242fc1a就是我们需要回溯到的版本。</p>
+<p>通过git 方式下载仓库以后。切换到目标版本。</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181418-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-4-1.png" alt="20181029181418-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-4-1"></p>
+<h1 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h1><p>Typecho 反序列化漏洞存在于install.php 文件中，让我们按照之前的思路来分析一下。</p>
+<h3 id="1-寻找可控的反序列化输入点。"><a href="#1-寻找可控的反序列化输入点。" class="headerlink" title="1. 寻找可控的反序列化输入点。"></a>1. 寻找可控的反序列化输入点。</h3><p>在install.php中，通过搜索 unserialize 关键词，发现两个相关点。</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181431-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-5-1.png" alt="20181029181431-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-5-1"></p>
+<p>看下代码：</p>
+<p>install.php</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181442-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-6.png" alt="20181029181442-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-6"></p>
+<p>232行是漏洞关键输入点。那么Typecho_Cookie::get()是啥？</p>
+<p>看下代码：</p>
+<p>Cookie.php</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181452-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-7.png" alt="20181029181452-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-7"></p>
+<p>A: “获取指定的COOKIE值”</p>
+<p>那么，232 行的意思是：反序列化了用base64解码后的key为__typecho_config 的 cookie 内容。</p>
+<p>cookie 可控，还有一个关键点是如何进入这段代码。</p>
+<p>一起来看一下</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918150-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-8-1.png" alt="2018102918150-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-8-1"></p>
+<p>执行到232行漏洞触发点的前提：</p>
+<ol>
+<li>设置finish参数</li>
+<li>设置refer，来源于漏洞站就ok</li>
+</ol>
+<p>第一步已经搞定。下面来分析第二步。</p>
+<h3 id="2-需要有一个相关联的，有魔术方法（会被自动调用）的类。"><a href="#2-需要有一个相关联的，有魔术方法（会被自动调用）的类。" class="headerlink" title="2. 需要有一个相关联的，有魔术方法（会被自动调用）的类。"></a>2. 需要有一个相关联的，有魔术方法（会被自动调用）的类。</h3><p>我们重新来看下232行开始的代码。</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181515-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-6.png" alt="20181029181515-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-6"></p>
+<p>序列化后的内容赋值给了$config</p>
+<p>234行把$config[&#8216;adapter&#8217;] , $config[&#8216;prefix&#8217;]作为参数传入了Typecho_Db类。</p>
+<p>复习一下之前说过的magic method。</p>
+<ol>
+<li>__construst()</li>
+<li>__destruct()</li>
+<li>__toString()</li>
+</ol>
+<p>__construst() 方法在每次创建新对象时会被自动调用</p>
+<p>__destruct() 方法在使用 <span class="function"><a href="http://php.net/manual/zh/function.exit.php" target="_blank" rel="noopener">exit()</a></span> 终止脚本运行时也会被自动调用</p>
+<p>__toString() 方法在一个类被当成字符串时应怎样回应。例如 <em>echo $obj;</em> 应该显示些什么。</p>
+<p>查看Typecho_Db类查看下源代码。</p>
+<p>Db.php</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918160-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-db-php-构造函数.png" alt="2018102918160-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-db-php-构造函数"></p>
+<p>&nbsp;</p>
+<p>114 行，$adapterName 作为参数被传进来以后，在120行进行了字符串拼接操作，字符串拼接操作会触发实例化类的<strong>toString()方法, 那我们的目标就可以放在</strong>toString()这个magic method 的方向上了。</p>
+<p>搜索__toString()，</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181611-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-feed-php-toString.png" alt="20181029181611-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-feed-php-toString"></p>
+<p>当我们找到一个符合条件的类的时候，就要确定这个类的magic method 中执行了什么东西。在Typecho_Feed这个类的__toString()中，没有跟上个文章中举例的一样的方法，这里就要另辟蹊径。</p>
+<h3 id="3-寻找能利用的利用点"><a href="#3-寻找能利用的利用点" class="headerlink" title="3. 寻找能利用的利用点"></a>3. 寻找能利用的利用点</h3><p><img src="http://img1.liulangxingqiu.com/20181029181622-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-typecho-feed-screenName.png" alt="20181029181622-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-typecho-feed-screenName"></p>
+<p>在290行，我们可控的$item[&#8216;auther&#8217;]调用了一个screenName 这个属性。</p>
+<p>在PHP中，如果该实例化的对象访问了一个‘不可访问’的属性的时候，就会调用__get()方法。</p>
+<p>这时候我们需要再次寻找 包含 __get() 的类。</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181649-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-search-get.png" alt="20181029181649-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-search-get"></p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181714-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php__get.png" alt="20181029181714-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php__get"></p>
+<p>这里的__get()调用了get()</p>
+<p>继续看get()</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181723-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php-get.png" alt="20181029181723-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php-get"></p>
+<p>298行到310行都是一些赋值操作。</p>
+<p>追踪一下_applyFilter()</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181730-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php-_applyFilter.png" alt="20181029181730-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php-_applyFilter"></p>
+<p>终于见到了我们想要的可以执行操作的函数call_user_func，</p>
+<p>把第一个参数作为回调函数调用</p>
+<p>通过这个函数，可以执行函数。</p>
+<p>回溯一下参数传递。从后到前。</p>
+<p>[Request.php]  call_user_func() 的参数 $filter 可控，来自</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181942-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php-property-filter.png" alt="20181029181942-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php-property-filter"><br>$value 参数可控，来自_applyFilter() 的参数 $value。<br>_appleyFilter() 参数来自get()方法的$key。</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181959-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php-property-params.png" alt="20181029181959-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php-property-params"></p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182011-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php-get.png" alt="20181029182011-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php-get"></p>
+<p>_get($key) 直接调用get($key)</p>
+<p>看下Feed.php。</p>
+<p>[Feed.php]  $item[&#8216;author&#8217;]-&gt;screenName 调用了 _get()方法。</p>
+<p>$item[&#8216;auther&#8217;]-&gt;screenName 的$item 来自 $this-&gt;_item</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182023-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-feed-php-additem.png" alt="20181029182023-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-feed-php-additem"></p>
+<h3 id="4-构建Poc"><a href="#4-构建Poc" class="headerlink" title="4. 构建Poc."></a>4. 构建Poc.</h3><p>通过第三点的分析，来构建Poc。</p>
+<p>再顺过来整理一遍。</p>
+<p>install.php &#8211; &gt; Db.php -&gt; Feed.php -&gt; Request.php</p>
+<ol>
+<li>install.php 漏洞触发点，存在unserialize()函数，序列化后的结果传给了Typecho_DB()</li>
+<li>Db.php 中 120行</li>
+</ol>
+<p>$adapterName = &#8216;Typecho_Db_Adapter_&#8217; . $adapterName;触发了__toString()方法。</p>
+<ol start="3">
+<li>找到存在__toString()并有可以利用的Feed.php，在其中调用了</li>
+</ol>
+<p>$item[&#8216;author&#8217;]-&gt;screenName，调用__get()方法。</p>
+<ol start="4">
+<li>找到__get()方法的Request.php ，调用了get()-&gt;调用了_appleyFilter()-&gt;call_user_func()</li>
+<li>结束、</li>
+</ol>
+<p>Poc:test.php</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182040-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-poc.png" alt="20181029182040-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-poc"></p>
+<p>先访问:</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182049-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-poc-show.png" alt="20181029182049-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-poc-show"></p>
+<p>设置cookie __typecho_config 为test的输出值</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918211-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-cookie.png" alt="2018102918211-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-cookie"></p>
+<p>设置refer &amp; url</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182119-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-url.png" alt="20181029182119-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-url"></p>
+<p>成功写入shell</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182128-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-shell2.png" alt="20181029182128-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-shell2"></p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182146-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-shell1.png" alt="20181029182146-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-shell1"></p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>PHP反序列化漏洞详细教程及实例（下）的分析到这里，就告一段落了。</p>
+<p>如果还有疑问，欢迎来讨论。</p>
+<p>同时，非常感谢下面的小伙伴的分析。在编写这篇文章的过程中，起到了参考和启发的作用。</p>
+<p>Refer</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; http://p0sec.net/index.php/archives/114/</span><br><span class="line">&gt; </span><br><span class="line">&gt; https://paper.seebug.org/424/</span><br><span class="line">&gt; </span><br><span class="line">&gt; https://paper.tuisec.win/detail/c1ecf917be22318.jsp</span><br></pre></td></tr></table></figure>
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>留言:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/hi-wenr0" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:mr.wenr0@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 WenR0<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'wenr0u';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>
