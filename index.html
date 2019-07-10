@@ -1,347 +1,2084 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
 
-<!-- Head tag -->
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--Description-->
-
-    
-
-    
-
-    <!--Author-->
-    
-        <meta name="author" content="WenR0">
-    
-
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="WenR0&#39;s Blog">
-    
-
-    <!--Open Graph Description-->
-    
-
-    <!--Open Graph Site Name-->
-        <meta property="og:site_name" content="WenR0&#39;s Blog">
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="website">
-    
-
-    <!--Page Cover-->
-    
-    
-        <meta property="og:image" content="https://hi-wenr0.github.iohttp://img1.liulangxingqiu.com/blog-banner.jpeg">
-    
-
-        <meta name="twitter:card" content="summary_large_image">
-
-    
-
-    
-        <meta name="twitter:image" content="https://hi-wenr0.github.iohttp://img1.liulangxingqiu.com/blog-banner.jpeg">
-    
-
-    <!-- Title -->
-    
-    <title>WenR0&#39;s Blog</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/style.css">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
-
-    <!-- Google Analytics -->
-    
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
 
 
-    <!-- favicon -->
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="WenR0&#39;s Blog">
+<meta property="og:url" content="https://hi-wenr0.github.io/index.html">
+<meta property="og:site_name" content="WenR0&#39;s Blog">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WenR0&#39;s Blog">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://hi-wenr0.github.io/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>WenR0's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-<body>
+  
+  
+    
+  
 
-    <!-- Menu -->
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">WenR0's Blog</a>
-        </div>
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                
-                    <li>
-                        <a href="/">
-                            
-                                Home
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/archives">
-                            
-                                Archives
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/tags">
-                            
-                                Tags
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://www.liulangxingqiu.com">
-                            
-                                Site
-                            
-                        </a>
-                    </li>
-                
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WenR0's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <!-- /.container -->
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home menu-item-active">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
 </nav>
 
-    <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
-<header class="intro-header" style="background-image: url('http://img1.liulangxingqiu.com/blog-banner.jpeg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>WenR0's Blog</h1>
-                    <hr class="small">
-                    <span class="subheading"></span>
-                </div>
-            </div>
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hi-wenr0.github.io/2019/07/10/StartUp-Checklist/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WenR0">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WenR0's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/10/StartUp-Checklist/" class="post-title-link" itemprop="url">StartUp Checklist</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-10 11:51:49 / 修改时间：11:52:53" itemprop="dateCreated datePublished" datetime="2019-07-10T11:51:49+08:00">2019-07-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="创业产品想法评估-Check-List"><a href="#创业产品想法评估-Check-List" class="headerlink" title="创业产品想法评估 Check List"></a>创业产品想法评估 Check List</h1><p>一直以来，我都在尝试不同的创业点子，在这个过程中，我需要一个好的 check list 来评估我的这些想法。当前，已经有一些非常好的模板了，比如 <a href="https://apply.ycombinator.com/" target="_blank" rel="noopener">The YC application</a>, 亚马逊的 <a href="https://apply.ycombinator.com/" target="_blank" rel="noopener">Internal press release</a> ，以及 Sequoia 的 <a href="https://www.sequoiacap.com/article/writing-a-business-plan/" target="_blank" rel="noopener">Writing a Business Plan</a>。我把这些模板混合起来使用，因为这些模板跟我的世界抽象不同，所以我搞了一份自己的 Check List。</p>
+<p>我用这些列表项来评估和思考我的想法。如果你要使用这个列表，请一定谨慎的对应到你自己的具体情境中。一些好的想法经常会在早期阶段被扼杀掉。</p>
+<h2 id="产品"><a href="#产品" class="headerlink" title="产品"></a>产品</h2><p>1 谁是你的目标客户？</p>
+<p>​    请用小于 70 个字回答</p>
+<p>2 用户最根源的痛点是？如果用户读到了你的这个答案，他们会说：“卧槽，这就是我想的！” 吗？</p>
+<p>​    请用小于 200 个字回答</p>
+<p>​    <a href="https://twitter.com/benedictevans/status/1110538673873805314" target="_blank" rel="noopener">@benedictevans</a> ：“ITunes 商店解决了用户的问题，Spotify 和 Apple Music也是，Apple News 也是。但是Apple TV 解决了用户的啥问题呢？”</p>
+<p>3 你为这些用户做了些什么？</p>
+<p>​    请用小于 70 个字回答</p>
+<p>​    <a href="https://www.amazon.com/Effective-Executive-Definitive-Harperbusiness-Essentials/dp/0060833459/" target="_blank" rel="noopener">Peter Drucker</a> ：“这个产品是为了用户而设计的吗？”</p>
+<p>4 假设你是一个客户，写一条推，模拟介绍这个产品，以及这个产品如何帮助你解决了你的问题。</p>
+<p>​    <a href="https://twitter.com/BrianNorgard/status/1110915013085028353" target="_blank" rel="noopener">@BrianNorgard</a>: No one cares about your product. Who built it, its features, the origin story — it’s all superfluous. People only find value in what your product can do for them right now. Save people time. Save people money. Give people an escape. The selfish hand will always govern.<br>​    <a href="https://www.amazon.com/Effective-Executive-Definitive-Harperbusiness-Essentials/dp/0060833459/" target="_blank" rel="noopener">Peter Drucker</a>: Are you <strong>really</strong> doing the best you can to help the customer?    </p>
+<p>5 给你的产品启动拟定一个博客的标题。这个标题让人惊喜吗？这个标题让人感觉很新颖吗？你的目标用户会点击这个标题吗？他们会想要分享这个链接吗？他们在今天分享完成以后，明天还会继续分享吗？</p>
+<p>​    请用小于 70 个字回答</p>
+<p>6 撰写产品公告博客文章的第一段。要包含一下要素：产品名称、产品用途、目标市场、优势在哪和行动要求。</p>
+<p>​    请用小于 300 个字回答</p>
+<p>7 你的目标客户关心什么“品质指标”？您的产品是否在这些指标上包含了所有可用的备选方案？</p>
+<p>​    请用小于 300 个字回答</p>
+<p>​    一些资料：<a href="https://www.jwz.org/doc/worse-is-better.html" target="_blank" rel="noopener">The Rise of Worse is Better</a>, <a href="https://www.artima.com/weblogs/viewpost.jsp?thread=24807" target="_blank" rel="noopener">Worse is worse</a></p>
+<h2 id="产品增长"><a href="#产品增长" class="headerlink" title="产品增长"></a>产品增长</h2><p>8 填写你的市场规模，公式：用户数 * ACV （Product Category Volume 产品类别数量） = 市场规模。你从这个公式中得到的数字是可靠的吗？如果你在构建一个全新的东西，那要找个好的参考目标。</p>
+<p>​    另请参见：<a href="https://wiki.lesswrong.com/wiki/Shut_up_and_multiply" target="_blank" rel="noopener">Shut up and multiply</a></p>
+<p>9 您的目标客户中的哪一部分受到现状的限制，使他们可以接受一款有缺陷的产品？</p>
+<p>​    请用小于 300 个字回答    </p>
+<p>10 列出你的前十个客户</p>
+<p>​    另请参见：<a href="http://paulgraham.com/ds.html" target="_blank" rel="noopener">Do Things that Don’t Scale</a></p>
+<p>11在期初的10个客户之后，你要通过什么方式来吸引客户？</p>
+<p>​    请用小于 300 个字回答</p>
+<p>​    另请参见： <a href="http://christophjanz.blogspot.com/2014/10/five-ways-to-build-100-million-business.html" target="_blank" rel="noopener">Five ways to build a $100 million business</a></p>
+<p>12 在18个月内你需要获得基本无限的廉价资本？ 你将如何实现这一目标？</p>
+<p>​    请用小于 300 个字回答</p>
+<h2 id="战略"><a href="#战略" class="headerlink" title="战略"></a>战略</h2><p>13 为什么是当下这个时机做呢？其他人为什么没有发现呢？</p>
+<p>​    请用小于 300 个字回答    </p>
+<p>14 在25年的时间范围内，你的公司最雄心勃勃的可实现的里程碑是什么？</p>
+<p>​    请用小于 100 个字回答</p>
+<p>15 你当前做的这个产品，是否在这个里程碑上取得了可靠的进步？</p>
+<p>​    是和否</p>
+<p>16 在这个之后的里程碑式的产品是什么？下个呢？下下个呢？</p>
+<p>​    请用小于 300 个字回答</p>
+<p>​    另请参见：<a href="https://twitter.com/spakhm/status/1111411471869595648" target="_blank" rel="noopener">Tesla master plan</a>, <a href="https://twitter.com/stevesi/status/1111092932252041216" target="_blank" rel="noopener">iPhone runs OSX</a></p>
+<p>17 你如何构建你的护城河？</p>
+<p>​    请用小于 300 个字回答</p>
+<p>​    另请参见：<a href="https://hbr.org/1979/03/how-competitive-forces-shape-strategy" target="_blank" rel="noopener">How Competitive Forces Shape Strategy</a></p>
+<h2 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h2><p>18 实现你的25年公司计划，对于世界来说，有何等的意义？那个未来让人激动吗？你要花费多少的生命奉献到这个计划中？如果你发现自己正处于与之相反的世界，你想回到过去吗？</p>
+<p>​    请用小于 300 个字回答    </p>
+<p>19 如果另一家公司也有和你相同的想法，你有何感想？你会加入他们吗？</p>
+<p>​    是或否</p>
+<p>20 想象一下自己站在团队、投资者、家人和朋友面前。你失败了，他们在等你说话。 你会说些什么？即使失败了，你仍会依然去解决这个问题吗？</p>
+<p>​    不限字数</p>
+<p>​    另请参见：<a href="https://twitter.com/statsepi/status/1021334815822548992" target="_blank" rel="noopener">Your intervention won’t work</a></p>
+<h2 id="福利"><a href="#福利" class="headerlink" title="福利"></a>福利</h2><p>21 你设想中股票代号是什么？</p>
+<p>22 你创建的公司，会成为今年最重要的公司吗？</p>
+<p>翻译自: <a href="https://www.defmacro.org/2019/03/26/startup-checklist.html" target="_blank" rel="noopener">startup checklist</a></p>
+
+          
+        
+      
     </div>
-</header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/2018/10/30/常见减肥用公式/">
-        <h2 class="post-title">
-            常见减肥用公式
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-10-30
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2018/05/29/So-you-want-to-be-a-web-security-researcher/">
-        <h2 class="post-title">
-            So you want to be a web security researcher?
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-05-29
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2018/02/02/初探机器学习检测-PHP-Webshell/">
-        <h2 class="post-title">
-            初探机器学习检测 PHP Webshell
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-02-02
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2018/01/03/PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析/">
-        <h2 class="post-title">
-            PHP反序列化漏洞详细教程及实例（下）  Typecho 反序列化漏洞分析
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-01-03
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/12/25/PHP反序列化漏洞详细教程及实例（上）/">
-        <h2 class="post-title">
-            PHP反序列化漏洞详细教程及实例（上）
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-12-25
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/12/25/《绝地求生：大逃杀》-死亡总结/">
-        <h2 class="post-title">
-            《绝地求生：大逃杀》 死亡总结
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-12-25
-    </p>
-</div>
-<hr>
-            
+    
 
-            <ul class="pager">
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hi-wenr0.github.io/2018/10/30/常见减肥用公式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WenR0">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WenR0's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/10/30/常见减肥用公式/" class="post-title-link" itemprop="url">常见减肥用公式</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-30 15:54:37" itemprop="dateCreated datePublished" datetime="2018-10-30T15:54:37+08:00">2018-10-30</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-20 14:47:57" itemprop="dateModified" datetime="2019-05-20T14:47:57+08:00">2019-05-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="基础代谢率公式"><a href="#基础代谢率公式" class="headerlink" title="基础代谢率公式"></a>基础代谢率公式</h2><pre><code>BMR(男)=(13.7×体重(公斤))+(5.0×身高(公分))-(6.8×年龄)+66
+BMR(女)=(9.6×体重(公斤))+(1.8×身高(公分))-(4.7×年龄)+655
+</code></pre><h2 id="脂肪和千卡换算"><a href="#脂肪和千卡换算" class="headerlink" title="脂肪和千卡换算"></a>脂肪和千卡换算</h2><pre><code>1KG脂肪 ≈ 7700KCal
+</code></pre><h2 id="跑步消耗能量计算"><a href="#跑步消耗能量计算" class="headerlink" title="跑步消耗能量计算"></a>跑步消耗能量计算</h2><p>(1)已知体重、时间和速度 </p>
+<pre><code>跑步热量（kcal）＝体重（kg）×运动时间（小时）×指数K 
+指数K＝30÷速度（分钟400米） 
+
+例如：某人体重60公斤，长跑1小时，速度是3分钟400米或8公里小时，那么他跑步过程中消耗的热量＝60×1×303=600kcal(千卡) 
+此种计算含盖了运动后由于基础代谢率提高所消耗的一部分热量，也就是运动后体温升高所产生的一部分热量。 
+</code></pre><p>(2)已知体重、距离 </p>
+<pre><code>跑步热量（kcal）＝体重（kg）×距离（公里）×1.036 
+例如：体重60公斤的人，长跑8公里，那么消耗的热量＝60×8×1.036＝497.28 kcal(千卡) 
+</code></pre><p>(3)已知体重、速度和时间</p>
+<pre><code>跑步热量（kcal）＝体重（kg）×运动时间（分钟）×指数K 
+一小时8公里 K＝0.1355 
+一小时12公里 K＝0.1797 
+一小时15公里 K＝0.1875 
+体重60公斤的人，长跑1小时，速度为8公里小时，那么消耗的热量＝60×60×0.1355＝487.8kcal(千卡)
+</code></pre>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hi-wenr0.github.io/2018/05/29/So-you-want-to-be-a-web-security-researcher/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WenR0">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WenR0's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/05/29/So-you-want-to-be-a-web-security-researcher/" class="post-title-link" itemprop="url">So you want to be a web security researcher?</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-29 16:24:59" itemprop="dateCreated datePublished" datetime="2018-05-29T16:24:59+08:00">2018-05-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-20 14:47:57" itemprop="dateModified" datetime="2019-05-20T14:47:57+08:00">2019-05-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>转载自先知社区，翻译版<a href="https://xz.aliyun.com/t/2358?from=timeline&amp;isappinstalled=0" target="_blank" rel="noopener">原文链接</a> ， 原版<a href="https://portswigger.net/blog/so-you-want-to-be-a-web-security-researcher" target="_blank" rel="noopener">链接</a></p>
+</blockquote>
+<p>您是否有志于推动Web安全技术的发展，并与信息安全社区分享相关知识呢？在这篇文章中，我将为读者分享与Web安全研究有关的各种建议，当然，这些建议一方面是来自某些成功经验，而另一些则是来自于曾经踩过的坑，希望对大家有所帮助。</p>
+<p><span id="more-251"></span></p>
+<h2 id="以“黑”为生"><a href="#以“黑”为生" class="headerlink" title="以“黑”为生"></a>以“黑”为生</h2><p>大部分研究都是在现有的技术的基础之上，百尺竿头更进一步的，所以，研究工作的第一步就是熟悉当前的技术水平。为了实现这一目标，最快的方法是找一份相关的工作，这样就可以有大量时间来接触网络黑客技术了。另外，因为已经有很多<a href="https://medium.com/@niruragu/so-you-want-to-be-a-security-engineer-d8775976afb7" title="大牛" target="_blank" rel="noopener">大牛</a>分享过“入坑”安全行业的<a href="https://medium.com/@niruragu/so-you-want-to-be-a-security-engineer-d8775976afb7" title="详细建议" target="_blank" rel="noopener">详细建议</a>，所以，这里只是简要提一下。</p>
+<p>我建议有兴趣的读者采用以实践为中心的研究方法，首先从<a href="https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project" title="OWASP Broken Web应用程序" target="_blank" rel="noopener">OWASP Broken Web应用程序</a>开始下手，继而转向更具实战性的安全挑战活动，比如<a href="https://hackxor.net/" title="hackxor.net" target="_blank" rel="noopener">hackxor.net</a>，这样的话，就可以通过<a href="https://hackerone.com/" title="HackerOne" target="_blank" rel="noopener">HackerOne</a>和<a href="https://bugcrowd.com/" title="BugCrowd" target="_blank" rel="noopener">BugCrowd</a>上难度和回报相对较低的挑战来练手，待学有所长之后，最终参加各种高赏金的计划。一旦你发现并公开披露的几个有影响的漏洞之后，加入安全咨询公司将不成问题，这样就可以整天跟黑客技术打交道了。</p>
+<p>当然，网络上面也有大量免费的在线资源，包括我们站点提供的<a href="https://support.portswigger.net/customer/portal/articles/2326039-the-burp-methodology" title="The Burp Methodology " target="_blank" rel="noopener">The Burp Methodology </a>系列文章，HackerOne站点的<a href="https://www.hackerone.com/hacker101" title="Hacker101" target="_blank" rel="noopener">Hacker101</a>系列文章，以及<a href="https://www.owasp.org/index.php/OWASP_Testing_Guide_v4_Table_of_Contents" title="OWASP测试指南" target="_blank" rel="noopener">OWASP测试指南</a>。至于书籍，我推荐读者阅读<a href="https://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting-ebook/dp/B005LVQA9S" title="《WebApp Hacker" target="_blank" rel="noopener">《WebApp Hacker&#8217;s Handbook》</a>和<a href="https://nostarch.com/tangledweb" title="《The Tangled Web》" target="_blank" rel="noopener">《The Tangled Web》</a>。</p>
+<h2 id="不要止步不前"><a href="#不要止步不前" class="headerlink" title="不要止步不前"></a>不要止步不前</h2><p>一旦开始全职黑客工作，自然能学到很多东西，但一段时间之后，您的专业技能就会停滞不前，除非努力的劲头一直保持不减。</p>
+<h3 id="要知新，更要温故"><a href="#要知新，更要温故" class="headerlink" title="要知新，更要温故"></a>要知新，更要温故</h3><p>为了不被小伙伴甩在后面，所有业内人士都会密切关注<a href="https://twitter.com/albinowax/following" title="行业专家" target="_blank" rel="noopener">行业专家</a>、<a href="https://www.reddit.com/r/netsec/" title="新闻聚合" target="_blank" rel="noopener">新闻聚合</a>和安全会议来跟踪行业的最新动向。然而，如果一门心思追逐最新技术的话，往往会遗忘和忽视大量的研究宝藏。</p>
+<p>每当读到优质博客文章时，请细心通读整篇文章。这样做的话，往往能够找到一些宝贵的、被遗忘的信息花絮。例如，<a href="https://web.archive.org/web/20110403015721/http://ha.ckers.org:80/blog/20091201/dns-rebinding-video/" title="这里" target="_blank" rel="noopener">这里</a>有一篇关于DNS重绑定的文章，是RSnake于2009年撰写的。DNS重绑定能够绕过基于IP/防火墙的网站访问控制，唯一有效的缓解方法就是采用相关的白名单技术。之后不久，人们就认为浏览器已经解决了这个问题，遗憾的是，9年以后，这个被遗忘的<a href="https://bugs.chromium.org/p/project-zero/issues/detail?id=1524" title="漏洞" target="_blank" rel="noopener">漏洞</a>又重出江湖了。</p>
+<p>此外，仔细阅读文档还可以帮助您避免浪费时间来重复其他人已经完成的工作，例如十年后<a href="https://twitter.com/LiveOverflow/status/967122565058715648" title="重新发明" target="_blank" rel="noopener">重新发明</a>CSS攻击。换句话说，一些研究文献真的很难找到，所以偶尔的“重蹈覆辙”是不可避免的。我曾与一位研究人员在某技术上面发生过“撞车”现象，戏剧性的是，后来我们两人都发现，早在5年之前，kuza55就发表过该技术了。所以，我们一方面要尽最大努力避免重复研究，但是，即使出现这种情况，也不必太惊讶——这是在所难免的。</p>
+<h3 id="力求多样性"><a href="#力求多样性" class="headerlink" title="力求多样性"></a>力求多样性</h3><p>要想把各种线索串起来并找出别人错过的机会的话，收集不同来源的信息是至关重要的。首先，不要只阅读安全方面的内容——您很快就会发现，<a href="http://blog.portswigger.net/2015/08/server-side-template-injection.html#FreeMarker" title="文档手册" target="_blank" rel="noopener">文档手册</a>也可以作为漏洞利用的指南。其次，我们还可以利用谷歌搜索来解决问题，还可以通过Twitter/Reddit/StackOverflow与同行和同事交流。最后，还有大量的知识是在社区内部传播的，换句话说，这些尚未公开发表。</p>
+<p>除此之外，还要努力使自己的经历多样化。</p>
+<p>在进行安全咨询黑盒测试的过程中，可以接触到各种各样的外部和内部Web应用程序，而这些应用程序则是在漏洞奖励计划中很难遇到的。但是，由于时间限制的缘故，你很难有机会深入理解一个应用程序，而对于漏洞赏金猎人来说，要想捕获特定目标中的漏洞，通常需要花费几个月的时间来熟悉它。尽管通常速度缓慢且受到各种限制，但白盒源码审计却可以提供不可替代的视角，便于发现黑盒测试人员永远都想不到的攻击方法。为了培养研究能力，最好将三种经历合理组合一下。此外，诸如参加CTF比赛和编写Web应用程序等经验，对于拓宽视野也是非常有帮助的。</p>
+<h3 id="没有任何想法是愚蠢的"><a href="#没有任何想法是愚蠢的" class="headerlink" title="没有任何想法是愚蠢的"></a>没有任何想法是愚蠢的</h3><p>最糟糕的陷阱之一，就是仅仅认为某想法行不通就不去尝试，例如，觉得某些想法“别人肯定早就想到了”或“这想法太蠢了，肯定不行”。实际上，我就曾经为此付出过沉重的代价——拜它所赐，一项研究成果在两年后才姗姗来迟。无论是通过重复尝试使用相同密码登录来<a href="https://blog.rapid7.com/2012/06/11/cve-2012-2122-a-tragically-comedic-security-flaw-in-mysql/" title="绕过身份验证" target="_blank" rel="noopener">绕过身份验证</a>，还是通过从笔记本电脑切换到手机<a href="https://medium.com/bugbountywriteup/bypassing-googles-fix-to-access-their-internal-admin-panels-12acd3d821e3" title="进入" target="_blank" rel="noopener">攻入</a>Google管理页面，踏上下一个重大漏洞的发现之路之前，可能首先需要一个非常愚蠢的想法。</p>
+<h2 id="迭代，发现，分享"><a href="#迭代，发现，分享" class="headerlink" title="迭代，发现，分享"></a>迭代，发现，分享</h2><h3 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h3><p>最简单的入门方法是找一些有前途的研究成果，通过混合其他技术构建新方法，然后将其用于某些实际目标，看看是否有什么有趣的事情发生。</p>
+<p>例如，这篇关于CORS配置错误的<a href="https://ejj.io/misconfigured-cors/index.html" title="文章" target="_blank" rel="noopener">文章</a>指出了一种有趣的行为，并且表示这种行为很普遍，但并没有探讨它对个人网站的影响情况。</p>
+<p>于是，我把这个概念应用到了漏洞赏金网站，因为我可以在这些网站上合法地探索它的影响，并且设法绕过各种可能的缓解措施。在此过程中，我以常见的开放重定向漏洞技术为助攻，随后在阅读CORS规范时发现了“空源”技术（the ‘null’ origin technique），并探索了缓存中毒的可能性。</p>
+<p>在这个过程中，根本无需借助于遥不可及的顿悟或卓尔不凡的技术知识，然而，由此产生的演示文稿和<a href="https://portswigger.net/blog/exploiting-cors-misconfigurations-for-bitcoins-and-bounties" title="博客文章" target="_blank" rel="noopener">博客文章</a>仍然很容易被大家所接受——毕竟，我付出的努力是大家有目共睹的。</p>
+<h3 id="发现"><a href="#发现" class="headerlink" title="发现"></a>发现</h3><p>虽然对他人的工作进行迭代不失为一个好方法，但现实是，好像任何一个角落都可能发掘出相应的研究宝藏，无论是<a href="http://www.thespanner.co.uk/2014/03/21/rpo/" title="相对路径覆盖" target="_blank" rel="noopener">相对路径覆盖</a>还是<a href="https://omergil.blogspot.co.uk/2017/02/web-cache-deception-attack.html" title="Web缓存欺骗" target="_blank" rel="noopener">Web缓存欺骗</a>。我的观点是，个人经验在这些发现过程中提供了重要的线索。我将这些经验称为导向器或“面包屑”，因为它们的作用机制往往是非常神秘的，而且，许多重大的发现，都是在一系列的经验的指引下找到的。</p>
+<p>例如，2011年，我试图破解addons.mozilla.org使用的CSRF保护机制。尽管我可以绕过令牌检查，但这显然是不够的——他们采用的安全机制还会验证Referer头部中的主机与当前站点的匹配情况。于是，我在sla.ckers论坛上发帖求助，后来&#8217;barbarianbob&#8217;指出，Django是通过查看HTTP Host头部来确定当前网站的主机的，而这个头部恰好可以通过X-Forwarded-Host头部来覆盖掉。换句话说，将其与Flash头部注入漏洞相结合的话，就有可能绕过CSRF检查，但更重要的是，这是我们的第一个“面包屑”——它暗示着应用程序可能是通过Host头部来了解其当前位置的。</p>
+<p>之后，通过阅读Piwik的密码重置函数的源代码，发现了如下所示的一行代码：</p>
+<div class="highlight"><br><pre><span class="x">$passwordResetLink = getCurrentUrlWithoutQueryString() + $secretToken</span><br></pre><br></div>
+
+<p>我们可以看出，Piwik使用的是PHP语言，众所周知，该语言的路径处理方式是非常搞笑的：如果通过<a href="http://piwik.com/reset.php/foo;http://evil.com" target="_blank" rel="noopener">http://piwik.com/reset.php/foo;http://evil.com</a> 请求重置密码，就会生成一个包含两个链接的电子邮件，并且秘密令牌将被发送到evil.com。这个想法果然是有效的，为此，我不仅获得了一笔赏金，并且还为后来的发现奠定了基础。</p>
+<p>第三个也是最后一个“面包屑”就是Piwik修补这个漏洞的方式——他们用getCurrentUrlWithoutFileName()替换了getCurrentUrlWithoutQueryString()函数。这意味着，我无法再使用该路径进行攻击。由于之前就跟Django打过交道，所以我决定深入研究相关代码，以了解Piwik是如何确定当前的主机名的，经研究后发现，像Django一样，Piwik也是使用的HTTP Host头部，也就是说，我可以轻松生成恶意的密码重置电子邮件。事实证明，这项技术同样适用于addons.mozilla.org、Gallery、Symfony、Drupal以及其他一些网站，即可以通过HTTP Host头部发动<a href="https://www.skeletonscribe.net/2013/05/practical-http-host-header-attacks.html" title="有效的攻击" target="_blank" rel="noopener">有效的攻击</a>。</p>
+<p>我之所以啰里啰嗦地阐述上面的发现过程，是希望能够帮助读者揭开安全研究的神秘面纱：许多研究成果，并非从天而降，凭空产生的。从这个角度来看，核心技能（超越了既有的知识和经验的广度）似乎在于如何识别这些面包屑并坚持不懈地追逐它们上面。我还不太清楚如何做到这一点，但我知道，帮助人们发现重大研究成果的线索，恰恰正是那些原以为“毫无意义”的事物。</p>
+<h3 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h3><p>最后，与社区分享您的研究也是至关重要的。这将有助于提高您的知名度，并可能说服雇主为自己分配更多的研究时间。除此之外，它还能帮助您避免浪费时间，并促进进一步的研究——评论者非常善于指出您之前不知道的工作，而且没有什么比看到其他研究人员在您的想法基础上再接再厉更有成就感了。</p>
+<p>请不要仅仅因为没有突破性的发现、两个徽标和一个演示文稿就认为一个技术或想法不值得分享——不要太过苛求，有啥就发布啥好了（当然，理想情况下是发表到博客上，而不仅仅是发表到类似Twitter这样不便于搜索引擎收录索引的平台上面）。</p>
+<p>在共享研究时，至少应展示一个应用于实际应用程序的技术示例。否则的话，一方面不利于人们的理解，另一方面，容易让人怀疑它是否具有实际价值。</p>
+<p>最后，演讲对于吸引更多观众来说非常有用，不过需要注意的是，不要把太多的时间花在重复过去的演讲上面。</p>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>关于安全研究，我自己还有很多东西要学，所以，我希望能在几年后重新回顾这个话题，并提供更多的线索。另外，我希望其他研究人员提供不同的观点，并期待从他们的分享中学习新的见解。</p>
+<p>最后，对于正在寻找安全研究的入门读物的读者，我已经准备好了一份<a href="https://skeletonscribe.net/#inspiration" title="博客" target="_blank" rel="noopener">博客</a>清单——多年来，我一直从中汲取营养。祝您好运，玩得开心!</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hi-wenr0.github.io/2018/02/02/初探机器学习检测-PHP-Webshell/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WenR0">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WenR0's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/02/02/初探机器学习检测-PHP-Webshell/" class="post-title-link" itemprop="url">初探机器学习检测 PHP Webshell</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-02-02 14:45:32" itemprop="dateCreated datePublished" datetime="2018-02-02T14:45:32+08:00">2018-02-02</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-20 14:47:57" itemprop="dateModified" datetime="2019-05-20T14:47:57+08:00">2019-05-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>最近刷完了吴恩达（Andrew Ng）的Machine Learning<a href="https://www.bilibili.com/video/av9912938/" target="_blank" rel="noopener">课程</a>，恰巧实验室有相关的需求，看了几个前辈的机器学习检测PHP Webshell 的文章，便打算自己也抄起袖子，在实战中求真知。</p>
+<p>本文会详细的介绍实现机器学习检测PHP Webshell的思路和过程，一步一步和大家一起完成这个检测的工具，文章末尾会放出已经写好的下载链接。</p>
+<h1 id="可能需要的背景知识"><a href="#可能需要的背景知识" class="headerlink" title="可能需要的背景知识"></a>可能需要的背景知识</h1><p>php基础知识（PHP opcode）</p>
+<p>php Webshell</p>
+<p>Python（scikit-learn）</p>
+<h2 id="背景知识简单介绍"><a href="#背景知识简单介绍" class="headerlink" title="背景知识简单介绍"></a>背景知识简单介绍</h2><p>PHP：世界上最好的编程语言，这个不多说了。</p>
+<p>PHP opcode：PHP opcode 是脚本编译后的中间语言，就如同Java 的Bytecode、.NET 的MSL。</p>
+<p>PHP Webshell：可以简单的理解为 网页后门。</p>
+<p>Python scikit-learn：</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918259-初探机器学习检测-PHP-Webshell-1.png" alt="2018102918259-初探机器学习检测-PHP-Webshell-1"></p>
+<p>（翻译：用起来美滋滋的Python 机器学习包）</p>
+<h1 id="可行性分析"><a href="#可行性分析" class="headerlink" title="可行性分析"></a>可行性分析</h1><p>PHP Webshell本质上也是一段PHP的代码，在没有深入研究前，也知道PHP Webshell 必然有一些规律，比如执行了某些操作（执行获取到的命令、列出目录文件、上传文件、查看文件等等）。如果直接用PHP 的源代码分析，会出现很多的噪音，比如注释内容、花操作等等。如果我们将PHP Webshell 的源代码转化成仅含执行语句操作的内容，就会一定程度上，过滤掉这些噪音。所以，我们使用PHP opcode 进行分析。</p>
+<p>针对opcode这种类型的数据内容，我们可以采用词袋，词频等方法来进行提取关键特征。最后使用分类的算法来进行训练。</p>
+<p>根据上面的简单“分析”，知道咱们在大体思路上，是可以行得通的。</p>
+<h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><h2 id="第一步：准备环境"><a href="#第一步：准备环境" class="headerlink" title="第一步：准备环境"></a>第一步：准备环境</h2><p>要获取到PHP opcode，需要添加一个PHP 的插件 VLD，我们拿Windows环境来进行举例。</p>
+<p>插件下载地址：<a href="http://pecl.php.net/package/vld/0.14.0/windows" target="_blank" rel="noopener">传送门</a></p>
+<p>选择对应版本进行下载</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182520-初探机器学习检测-PHP-Webshell-2.png" alt="20181029182520-初探机器学习检测-PHP-Webshell-2"></p>
+<p>下载好后，放入到PHP 安装目录下的ext文件夹内，我使用的是PHPstudy环境，</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182527-初探机器学习检测-PHP-Webshell-3.png" alt="20181029182527-初探机器学习检测-PHP-Webshell-3"></p>
+<p>然后编辑php.ini文件，添加一行内容</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182540-初探机器学习检测-PHP-Webshell-4.png" alt="20181029182540-初探机器学习检测-PHP-Webshell-4"></p>
+<p>extension=php_vld.dll</p>
+<p>测试是否安装成功：</p>
+<p>测试文件1.php</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182550-初探机器学习检测-PHP-Webshell-6.png" alt="20181029182550-初探机器学习检测-PHP-Webshell-6"></p>
+<p>执行命令：</p>
+<p> php -dvld.active=1 -dvld.execute=0 1.php</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182558-初探机器学习检测-PHP-Webshell-7.png" alt="20181029182558-初探机器学习检测-PHP-Webshell-7"></p>
+<p>如果显示内容是差不多一样的，那我们的环境配置就成功了。</p>
+<p>我们需要的就是这段输出中的</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918266-初探机器学习检测-PHP-Webshell-8.png" alt="2018102918266-初探机器学习检测-PHP-Webshell-8"></p>
+<p>ECHO 、RETURN</p>
+<p>这样的opcode。</p>
+<p>到这里，我们的PHP环境配置基本完成了。</p>
+<h2 id="第二步：准备数据"><a href="#第二步：准备数据" class="headerlink" title="第二步：准备数据"></a>第二步：准备数据</h2><p>进行机器学习前，我们很关键的一步是要准备数据，<strong>样本的数量和质量</strong>直接影响到了我们最后的成果。</p>
+<h3 id="下载数据"><a href="#下载数据" class="headerlink" title="下载数据"></a>下载数据</h3><p>这里需要准备的数据分为两类，【白名单数据】、【黑名单数据】。</p>
+<p>白名单数据指我们正常的PHP程序，黑名单数据指的是PHP Webshell程序。数据源还是我们的老朋友 github.com</p>
+<p>在github上搜索PHP，可以得到很多的PHP的项目，咱们筛选几个比较知名和常用的。</p>
+<p>白名单列表（一小部分）：</p>
+<ul>
+<li><a href="https://github.com/WordPress/WordPress" target="_blank" rel="noopener">https://github.com/WordPress/WordPress</a></li>
+<li><a href="https://github.com/typecho/typecho" target="_blank" rel="noopener">https://github.com/typecho/typecho</a></li>
+<li><a href="https://github.com/phpmyadmin/phpmyadmin" target="_blank" rel="noopener">https://github.com/phpmyadmin/phpmyadmin</a></li>
+<li><a href="https://github.com/laravel/laravel" target="_blank" rel="noopener">https://github.com/laravel/laravel</a></li>
+<li><a href="https://github.com/top-think/framework" target="_blank" rel="noopener">https://github.com/top-think/framework</a></li>
+<li><a href="https://github.com/symfony/symfony" target="_blank" rel="noopener">https://github.com/symfony/symfony</a></li>
+<li><a href="https://github.com/bcit-ci/CodeIgniter" target="_blank" rel="noopener">https://github.com/bcit-ci/CodeIgniter</a></li>
+<li><a href="https://github.com/yiisoft/yii2" target="_blank" rel="noopener">https://github.com/yiisoft/yii2</a></li>
 </ul>
-        </div>
+<p>再继续搜索一下 Webshell 关键字，也有很多收集 Webshell 的项目。</p>
+<p>黑名单列表（一小部分）：</p>
+<ul>
+<li><a href="https://github.com/tennc/webshell" target="_blank" rel="noopener">https://github.com/tennc/webshell</a></li>
+<li><a href="https://github.com/ysrc/webshell-sample" target="_blank" rel="noopener">https://github.com/ysrc/webshell-sample</a></li>
+<li><a href="https://github.com/xl7dev/WebShell" target="_blank" rel="noopener">https://github.com/xl7dev/WebShell</a></li>
+</ul>
+<h3 id="创建工程文件夹"><a href="#创建工程文件夹" class="headerlink" title="创建工程文件夹"></a>创建工程文件夹</h3><p>创建工程文件夹【MLCheckWebshell】，并在目录下创建【black-list】【white-list】文件夹。用于存放黑名单文件和白名单文件。</p>
+<h3 id="提取opcode"><a href="#提取opcode" class="headerlink" title="提取opcode"></a>提取opcode</h3><p>我们创建一个utils.py 文件，用来编写提取opcode的工具函数。</p>
+<p>工具函数1：</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182628-初探机器学习检测-PHP-Webshell-9.png" alt="20181029182628-初探机器学习检测-PHP-Webshell-9"></p>
+<p>方法load_php_opcode 解读：</p>
+<p>用Python 的subprocess 模块来进行执行系统操作，获取其所有输出，并用正则提取opcode，再用空格来连接起来</p>
+<p>工具函数2；</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182636-初探机器学习检测-PHP-Webshell-11.png" alt="20181029182636-初探机器学习检测-PHP-Webshell-11"></p>
+<p>工具方法2 recursion_load_php_file_opcode 的作用是遍历目标文件夹内的所有的PHP文件并生成opcode，最后生成一个列表，并返回。</p>
+<p>然后我们在工程目录下，创建train.py文件。</p>
+<p>编写prepare_data() 函数</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182641-初探机器学习检测-PHP-Webshell-12.png" alt="20181029182641-初探机器学习检测-PHP-Webshell-12"></p>
+<p>prepare_data 做了以下几个事：</p>
+<ol>
+<li>把黑名单和白名单中的PHP opcode 统一生成并分别写入到两个不同的文件中。</li>
+<li>如果这两个文件已经存在，那就不再次生成了</li>
+<li>把白名单中的PHP opcode 贴上 【0】的标签</li>
+<li>把黑名单中的PHP opcode 贴上 【1】的标签</li>
+<li>最后返回所有PHP opcode 的集合数据 X（有序）</li>
+<li>返回所有PHP opcode 的标签 y（有序）</li>
+</ol>
+<h2 id="第三步：编写训练函数"><a href="#第三步：编写训练函数" class="headerlink" title="第三步：编写训练函数"></a>第三步：编写训练函数</h2><p>终于到了我们的重点节目了，编写训练函数。</p>
+<p>在这里先简单的介绍一下<a href="http://scikit-learn.org/" target="_blank" rel="noopener">scikit-learn</a>中我们需要的一些使用起来很简单的对象和方法。</p>
+<ol>
+<li>CountVectorizer</li>
+<li>TfidfTransformer</li>
+<li>train_test_split</li>
+<li>GaussianNB</li>
+</ol>
+<p>CountVectorizer 的作用是把一些列文档的集合转化成数值矩阵。</p>
+<p>TfidfTransformer 的作用是把数值矩阵规范化为 tf 或 tf-idf 。</p>
+<p>train_test_split的作用是“随机”分配训练集和测试集。这里的随机不是每次都随机，在参数确定的时候，每次随机的结果都是相同的。有时，为了增加训练结果的有效性，我们会用到交叉验证（cross validations）。</p>
+<p>GaussianNB ：Scikit-learn 对朴素贝叶斯算法的实现。朴素贝叶斯算法是常用的监督型算法。</p>
+<p>先上写好的代码：</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182650-初探机器学习检测-PHP-Webshell-15.png" alt="20181029182650-初探机器学习检测-PHP-Webshell-15"></p>
+<p>代码介绍：</p>
+<p>首先，我们用了刚才写的prepare_data()函数来获取我们的数据集。然后，创建了一个CountVectorizer 对象，初始化的过程中，我们告诉CountVectorizer对象，ngram的上下限为(3,3) 【ngram_range=(3,3)】，当出现解码错误的时候，直接忽略【decode_error=”ignore”】，匹配token的方式是【r”\b\w+\b”】，这样匹配我们之前用空格来隔离每个opcode 的值。</p>
+<p>然后我们用 cv.fit_transform(X).toarray() 来“格式化”我们的结果，最终是一个矩阵。</p>
+<p>接着创建一个TfidfTransformer对象，用同样的方式处理一次我们刚才得到的总数据值。</p>
+<p>然后使用train_test_split函数来获取<strong>打乱的随机的</strong>测试集和训练集。这时候，黑名单中的文件和白名单中的文件排列顺序就被随机打乱了，但是X[i] 和 y[i] 的对应关系没有改变，训练集和测试集在总数聚集中分别占比60%和40%。</p>
+<p>接下来，创建一个GaussianNB 对象，在Scikit-learn中，已经内置好的算法对象可以直接进行训练，输入内容为训练集的数据（X_train） 和 训练集的标签（y_train）。</p>
+<p>gnb.fit(X_train, y_train)</p>
+<p>执行完上面这个语句以后，我们就会得到一个已经训练完成的gnb训练对象，我们用测试集(X_test) 去预测得到我们的y_pred 值（预测出来的类型）。</p>
+<p>然后我们对比原本的 y_test 和 用训练算法得到的结果 y_pred。</p>
+<p>metrics.accuracy_score(y_test, y_pred)</p>
+<p>结果即为在此训练集和测试集下的准确率。</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918272-初探机器学习检测-PHP-Webshell-17.png" alt="2018102918272-初探机器学习检测-PHP-Webshell-17"></p>
+<p>约为97.42%</p>
+<p>还需要计算混淆矩阵来评估分类的准确性。</p>
+<p>metrics.confusion_matrix(y_test, y_pred)</p>
+<p>输出结果见上图。</p>
+<p>编写训练函数到这里已经初具雏形。并可以拿来简单的使用了。</p>
+<h2 id="第四步：持久化-amp-应用"><a href="#第四步：持久化-amp-应用" class="headerlink" title="第四步：持久化&amp;应用"></a>第四步：持久化&amp;应用</h2><p>编写完训练函数，现在我们可以拿新的Webshell来挑战一下我们刚才已经训练好的gnb。</p>
+<p>但是，如果每次检测之前，都要重新训练一次，那速度就非常的慢了，我们需要持久化我们的训练结果。</p>
+<p>在Scikit-learn 中，我们用joblib.dump() 方法来持久化我们的训练结果，细心的读者应该发现，在method1() 中有个被注释掉的语句</p>
+<p>joblib.dump(gnb, ‘save/gnb.pkl’)</p>
+<p>这个操作就是把我们训练好的gnb保存到save文件夹内的gnb.pkl文件中。</p>
+<p>方面下次使用。</p>
+<p>创建check.py</p>
+<p>理一下思路：先实例化我们之前保存的内容，然后将新的检测内容放到gnb中进行检测，判断类型并输出。</p>
+<p>核心代码：</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182713-初探机器学习检测-PHP-Webshell-18.png" alt="20181029182713-初探机器学习检测-PHP-Webshell-18"></p>
+<p>最后根据标签来判断结果，0 为 正常程序， 1 为 Webshell。</p>
+<p>我们来进行一个简单的测试。</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182720-初探机器学习检测-PHP-Webshell-usage.png" alt="20181029182720-初探机器学习检测-PHP-Webshell-usage"></p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182728-初探机器学习检测-PHP-Webshell-usage-1.png" alt="20181029182728-初探机器学习检测-PHP-Webshell-usage-1"></p>
+<p>那么，一个简单的通过朴素贝叶斯训练算法判断Webshell的小程序就完成了。</p>
+<h1 id="下一步？"><a href="#下一步？" class="headerlink" title="下一步？"></a>下一步？</h1><p>这个小程序只是一个简单的应用，还有很多的地方可以根据需求去改进</p>
+<p>如：</p>
+<p>在准备数据时：</p>
+<ol>
+<li>生成 opcode过程中，数据量太大无法全部放入内存中时，更换写入文件中的方式。</li>
+</ol>
+<p>在编写训练方法时：</p>
+<ol>
+<li>更换CountVectorizer的ngram参数，提高准确性。</li>
+<li>增加cross validation 来增加可靠性</li>
+<li>更换朴素贝叶斯算法为其他的算法，比如MLP、CNN（深度学习算法）等。</li>
+</ol>
+<p>在训练后，得到数据与预期不符合时：</p>
+<ol>
+<li>重复增量型训练，优化训练结果。</li>
+<li>增大训练数据量</li>
+<li>如果对PHP opcode 有深入研究的同学可以采用其他的提取特征的方法来进行训练。</li>
+<li>选择多种训练方法，看看哪一种的效果最好，而且不会过度拟合（over fitting）。</li>
+</ol>
+<p># </p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>最后咱们总结一下机器学习在Webshell 检测过程中的思路和操作。</p>
+<ol>
+<li>提取特征，准备数据</li>
+<li>找到合适的算法，进行训练</li>
+<li>检查是否符合心中预期，会不会出现过度拟合等常见的问题。</li>
+<li>提供更多更精准的数据，或更换算法。</li>
+<li>重复1~4</li>
+</ol>
+<p>本人也是小菜鸡，在此分享一下简单的思路和方法。希望能抛砖引玉。</p>
+<h4 id="项目下载地址："><a href="#项目下载地址：" class="headerlink" title="项目下载地址："></a>项目下载地址：</h4><p><a href="https://github.com/hi-WenR0/MLCheckWebshell" target="_blank" rel="noopener">https://github.com/hi-WenR0/MLCheckWebshell</a></p>
+<h4 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h4><p><a href="https://mp.weixin.qq.com/s?__biz=MzIwNjEwNTQ4Mw==&amp;mid=2651577090&amp;idx=1&amp;sn=924b14ba842f57c34f06995416a98360&amp;chksm=8cd9c5e6bbae4cf0e3eed6192133c6c87de47cfcc911fca90d86f1383d5ec2f6f1cf661aaeb6&amp;mpshare=1&amp;scene=1&amp;srcid=0118yl2ryPVxJto00p3uvrhy#rd" target="_blank" rel="noopener">基于机器学习的 Webshell 发现技术探索</a></p>
+
+          
+        
+      
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hi-wenr0.github.io/2018/01/03/PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WenR0">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WenR0's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/01/03/PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析/" class="post-title-link" itemprop="url">PHP反序列化漏洞详细教程及实例（下）  Typecho 反序列化漏洞分析</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-03 17:48:27" itemprop="dateCreated datePublished" datetime="2018-01-03T17:48:27+08:00">2018-01-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-20 14:47:57" itemprop="dateModified" datetime="2019-05-20T14:47:57+08:00">2019-05-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>大家好，结合上一篇PHP反序列化的文章，炒一下冷饭，给大家分析一下10月份出的 Typecho 反序列化漏洞。</p>
+<p>本文的目的是把反序列化漏洞讲清楚，奶妈级讲解方式，让你看明白。</p>
+<p><span id="more-52"></span></p>
+<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><!-- 让我们先回顾一下[PHP反序列化漏洞详细教程及实例（上）](http://www.wenr0.me/?p=16)中的重要部分： -->
+<a href="/2017/12/25/PHP反序列化漏洞详细教程及实例（上）/" title="PHP反序列化漏洞详细教程及实例（上）">PHP反序列化漏洞详细教程及实例（上）</a>
+<p><strong>示例漏洞利用的过程：</strong></p>
+<ol>
+<li>需要有一个漏洞触发点 ：pets.php 内的 $pet = unserialize($_GET[&#8216;pet_serialized&#8217;]);</li>
+<li>需要有一个相关联的，有魔术方法（会被自动调用）的类。log.php （WTFLog 内的__destruct函数）。</li>
+<li>漏洞的效果取决于__destruct 这个魔术函数内的操作，这里的是可以操控的可以删除的log 的 filename。</li>
+<li>构建poc.php ，利用程序，先序列化后，从可控输入$_GET[&#8216;pet_serialized&#8217;]输入进去。</li>
+<li>完成。</li>
+</ol>
+<h1 id="代码回溯"><a href="#代码回溯" class="headerlink" title="代码回溯"></a>代码回溯</h1><p>在本文编写时，Typecho早已发布了很多新版本，让我们从git logs 中，找到存在漏洞的版本。</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181339-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-2-1.png" alt></p>
+<p>根据漏洞发生时间：10月左右，commit message : 漏洞 来确定具体的commit是哪一个</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918145-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-3-1.png" alt="2018102918145-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-3-1"></p>
+<p>可以看到e277141 是已经修复后的commit，那么242fc1a就是我们需要回溯到的版本。</p>
+<p>通过git 方式下载仓库以后。切换到目标版本。</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181418-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-4-1.png" alt="20181029181418-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-4-1"></p>
+<h1 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h1><p>Typecho 反序列化漏洞存在于install.php 文件中，让我们按照之前的思路来分析一下。</p>
+<h3 id="1-寻找可控的反序列化输入点。"><a href="#1-寻找可控的反序列化输入点。" class="headerlink" title="1. 寻找可控的反序列化输入点。"></a>1. 寻找可控的反序列化输入点。</h3><p>在install.php中，通过搜索 unserialize 关键词，发现两个相关点。</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181431-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-5-1.png" alt="20181029181431-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-5-1"></p>
+<p>看下代码：</p>
+<p>install.php</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181442-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-6.png" alt="20181029181442-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-6"></p>
+<p>232行是漏洞关键输入点。那么Typecho_Cookie::get()是啥？</p>
+<p>看下代码：</p>
+<p>Cookie.php</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181452-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-7.png" alt="20181029181452-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-7"></p>
+<p>A: “获取指定的COOKIE值”</p>
+<p>那么，232 行的意思是：反序列化了用base64解码后的key为__typecho_config 的 cookie 内容。</p>
+<p>cookie 可控，还有一个关键点是如何进入这段代码。</p>
+<p>一起来看一下</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918150-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-8-1.png" alt="2018102918150-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-8-1"></p>
+<p>执行到232行漏洞触发点的前提：</p>
+<ol>
+<li>设置finish参数</li>
+<li>设置refer，来源于漏洞站就ok</li>
+</ol>
+<p>第一步已经搞定。下面来分析第二步。</p>
+<h3 id="2-需要有一个相关联的，有魔术方法（会被自动调用）的类。"><a href="#2-需要有一个相关联的，有魔术方法（会被自动调用）的类。" class="headerlink" title="2. 需要有一个相关联的，有魔术方法（会被自动调用）的类。"></a>2. 需要有一个相关联的，有魔术方法（会被自动调用）的类。</h3><p>我们重新来看下232行开始的代码。</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181515-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-6.png" alt="20181029181515-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-6"></p>
+<p>序列化后的内容赋值给了$config</p>
+<p>234行把$config[&#8216;adapter&#8217;] , $config[&#8216;prefix&#8217;]作为参数传入了Typecho_Db类。</p>
+<p>复习一下之前说过的magic method。</p>
+<ol>
+<li>__construst()</li>
+<li>__destruct()</li>
+<li>__toString()</li>
+</ol>
+<p>__construst() 方法在每次创建新对象时会被自动调用</p>
+<p>__destruct() 方法在使用 <span class="function"><a href="http://php.net/manual/zh/function.exit.php" target="_blank" rel="noopener">exit()</a></span> 终止脚本运行时也会被自动调用</p>
+<p>__toString() 方法在一个类被当成字符串时应怎样回应。例如 <em>echo $obj;</em> 应该显示些什么。</p>
+<p>查看Typecho_Db类查看下源代码。</p>
+<p>Db.php</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918160-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-db-php-构造函数.png" alt="2018102918160-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-db-php-构造函数"></p>
+<p>&nbsp;</p>
+<p>114 行，$adapterName 作为参数被传进来以后，在120行进行了字符串拼接操作，字符串拼接操作会触发实例化类的<strong>toString()方法, 那我们的目标就可以放在</strong>toString()这个magic method 的方向上了。</p>
+<p>搜索__toString()，</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181611-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-feed-php-toString.png" alt="20181029181611-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-feed-php-toString"></p>
+<p>当我们找到一个符合条件的类的时候，就要确定这个类的magic method 中执行了什么东西。在Typecho_Feed这个类的__toString()中，没有跟上个文章中举例的一样的方法，这里就要另辟蹊径。</p>
+<h3 id="3-寻找能利用的利用点"><a href="#3-寻找能利用的利用点" class="headerlink" title="3. 寻找能利用的利用点"></a>3. 寻找能利用的利用点</h3><p><img src="http://img1.liulangxingqiu.com/20181029181622-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-typecho-feed-screenName.png" alt="20181029181622-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-typecho-feed-screenName"></p>
+<p>在290行，我们可控的$item[&#8216;auther&#8217;]调用了一个screenName 这个属性。</p>
+<p>在PHP中，如果该实例化的对象访问了一个‘不可访问’的属性的时候，就会调用__get()方法。</p>
+<p>这时候我们需要再次寻找 包含 __get() 的类。</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181649-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-search-get.png" alt="20181029181649-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-search-get"></p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181714-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php__get.png" alt="20181029181714-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php__get"></p>
+<p>这里的__get()调用了get()</p>
+<p>继续看get()</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181723-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php-get.png" alt="20181029181723-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php-get"></p>
+<p>298行到310行都是一些赋值操作。</p>
+<p>追踪一下_applyFilter()</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181730-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php-_applyFilter.png" alt="20181029181730-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php-_applyFilter"></p>
+<p>终于见到了我们想要的可以执行操作的函数call_user_func，</p>
+<p>把第一个参数作为回调函数调用</p>
+<p>通过这个函数，可以执行函数。</p>
+<p>回溯一下参数传递。从后到前。</p>
+<p>[Request.php]  call_user_func() 的参数 $filter 可控，来自</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181942-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php-property-filter.png" alt="20181029181942-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php-property-filter"><br>$value 参数可控，来自_applyFilter() 的参数 $value。<br>_appleyFilter() 参数来自get()方法的$key。</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029181959-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php-property-params.png" alt="20181029181959-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php-property-params"></p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182011-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php-get.png" alt="20181029182011-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-request-php-get"></p>
+<p>_get($key) 直接调用get($key)</p>
+<p>看下Feed.php。</p>
+<p>[Feed.php]  $item[&#8216;author&#8217;]-&gt;screenName 调用了 _get()方法。</p>
+<p>$item[&#8216;auther&#8217;]-&gt;screenName 的$item 来自 $this-&gt;_item</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182023-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-feed-php-additem.png" alt="20181029182023-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-feed-php-additem"></p>
+<h3 id="4-构建Poc"><a href="#4-构建Poc" class="headerlink" title="4. 构建Poc."></a>4. 构建Poc.</h3><p>通过第三点的分析，来构建Poc。</p>
+<p>再顺过来整理一遍。</p>
+<p>install.php &#8211; &gt; Db.php -&gt; Feed.php -&gt; Request.php</p>
+<ol>
+<li>install.php 漏洞触发点，存在unserialize()函数，序列化后的结果传给了Typecho_DB()</li>
+<li>Db.php 中 120行</li>
+</ol>
+<p>$adapterName = &#8216;Typecho_Db_Adapter_&#8217; . $adapterName;触发了__toString()方法。</p>
+<ol start="3">
+<li>找到存在__toString()并有可以利用的Feed.php，在其中调用了</li>
+</ol>
+<p>$item[&#8216;author&#8217;]-&gt;screenName，调用__get()方法。</p>
+<ol start="4">
+<li>找到__get()方法的Request.php ，调用了get()-&gt;调用了_appleyFilter()-&gt;call_user_func()</li>
+<li>结束、</li>
+</ol>
+<p>Poc:test.php</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182040-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-poc.png" alt="20181029182040-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-poc"></p>
+<p>先访问:</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182049-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-poc-show.png" alt="20181029182049-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-poc-show"></p>
+<p>设置cookie __typecho_config 为test的输出值</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918211-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-cookie.png" alt="2018102918211-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-cookie"></p>
+<p>设置refer &amp; url</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182119-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-url.png" alt="20181029182119-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-url"></p>
+<p>成功写入shell</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182128-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-shell2.png" alt="20181029182128-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-shell2"></p>
+<p><img src="http://img1.liulangxingqiu.com/20181029182146-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-shell1.png" alt="20181029182146-PHP反序列化漏洞详细教程及实例（下）-Typecho-反序列化漏洞分析-shell1"></p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>PHP反序列化漏洞详细教程及实例（下）的分析到这里，就告一段落了。</p>
+<p>如果还有疑问，欢迎来讨论。</p>
+<p>同时，非常感谢下面的小伙伴的分析。在编写这篇文章的过程中，起到了参考和启发的作用。</p>
+<p>Refer</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; http://p0sec.net/index.php/archives/114/</span><br><span class="line">&gt; </span><br><span class="line">&gt; https://paper.seebug.org/424/</span><br><span class="line">&gt; </span><br><span class="line">&gt; https://paper.tuisec.win/detail/c1ecf917be22318.jsp</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hi-wenr0.github.io/2017/12/25/PHP反序列化漏洞详细教程及实例（上）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WenR0">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WenR0's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/12/25/PHP反序列化漏洞详细教程及实例（上）/" class="post-title-link" itemprop="url">PHP反序列化漏洞详细教程及实例（上）</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-12-25 16:33:34" itemprop="dateCreated datePublished" datetime="2017-12-25T16:33:34+08:00">2017-12-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-20 14:47:57" itemprop="dateModified" datetime="2019-05-20T14:47:57+08:00">2019-05-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>PHP反序列化漏洞是一种常见的漏洞，在本篇文章中，希望能深入简出的让各位即使没有安全背景的读者明白什么是PHP反序列化漏洞，以及如何利用。</p>
+<p>如有错误不足之处，请不吝指教。</p>
+<h2 id="你需要的前置知识"><a href="#你需要的前置知识" class="headerlink" title="你需要的前置知识"></a>你需要的前置知识</h2><ol>
+<li>PHP类与对象</li>
+<li>PHP魔术方法</li>
+<li>PHP反序列化方法</li>
+</ol>
+<h3 id="PHP类与对象"><a href="#PHP类与对象" class="headerlink" title="PHP类与对象"></a>PHP类与对象</h3><p>先从最简单的开始。</p>
+<p>在PHP中，定义一个类，和定义一个类的方法。</p>
+<p>一个简单的例子：</p>
+<p><img src="http://img1.liulangxingqiu.com/2.png" alt></p>
+<h3 id="PHP魔术方法"><a href="#PHP魔术方法" class="headerlink" title="PHP魔术方法"></a>PHP魔术方法</h3><p>在PHP官方网站中的定义：</p>
+<p><a href="http://php.net/manual/zh/language.oop5.decon.php#object.construct" target="_blank" rel="noopener">__construct()</a>， <a href="http://php.net/manual/zh/language.oop5.decon.php#object.destruct" target="_blank" rel="noopener">__destruct()</a>， <a href="http://php.net/manual/zh/language.oop5.overloading.php#object.call" target="_blank" rel="noopener">__call()</a>， <a href="http://php.net/manual/zh/language.oop5.overloading.php#object.callstatic" target="_blank" rel="noopener">__callStatic()</a>， <a href="http://php.net/manual/zh/language.oop5.overloading.php#object.get" target="_blank" rel="noopener">__get()</a>， <a href="http://php.net/manual/zh/language.oop5.overloading.php#object.set" target="_blank" rel="noopener">__set()</a>， <a href="http://php.net/manual/zh/language.oop5.overloading.php#object.isset" target="_blank" rel="noopener">__isset()</a>， <a href="http://php.net/manual/zh/language.oop5.overloading.php#object.unset" target="_blank" rel="noopener">__unset()</a>， <a href="http://php.net/manual/zh/language.oop5.magic.php#object.sleep" target="_blank" rel="noopener">__sleep()</a>， <a href="http://php.net/manual/zh/language.oop5.magic.php#object.wakeup" target="_blank" rel="noopener">__wakeup()</a>， <a href="http://php.net/manual/zh/language.oop5.magic.php#object.tostring" target="_blank" rel="noopener">__toString()</a>，<a href="http://php.net/manual/zh/language.oop5.magic.php#object.invoke" target="_blank" rel="noopener">__invoke()</a>， <a href="http://php.net/manual/zh/language.oop5.magic.php#object.set-state" target="_blank" rel="noopener">__set_state()</a>， <a href="http://php.net/manual/zh/language.oop5.cloning.php#object.clone" target="_blank" rel="noopener">__clone()</a> 和 <a href="http://php.net/manual/zh/language.oop5.magic.php#object.debuginfo" target="_blank" rel="noopener">__debugInfo()</a> 等方法在 PHP 中被称为”魔术方法”（Magic methods）。在命名自己的类方法时不能使用这些方法名，除非是想使用其魔术功能。</p>
+<p>咱们来简单讲解几个魔术方法</p>
+<ol>
+<li>__construst()</li>
+<li>__destruct()</li>
+<li>__toString()</li>
+</ol>
+<p>__construst() 方法在每次创建新对象时会被自动调用</p>
+<p>__destruct() 方法在使用 <a href="http://php.net/manual/zh/function.exit.php" target="_blank" rel="noopener">exit()</a> 终止脚本运行时也会被自动调用</p>
+<p>__toString() 方法在一个类被当成字符串时应怎样回应。例如 <em>echo $obj;</em> 应该显示些什么。</p>
+<p>代码：</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029175823-PHP反序列化漏洞详细教程及实例（上）-3.png" alt><br>输出结果：</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102917599-PHP反序列化漏洞详细教程及实例（上）-4.png" alt="2018102917599-PHP反序列化漏洞详细教程及实例（上）-4"></p>
+<h3 id="PHP对象序列化"><a href="#PHP对象序列化" class="headerlink" title="PHP对象序列化"></a>PHP对象序列化</h3><p>在PHP网站中的定义：</p>
+<p>  所有php里面的值都可以使用函数<a href="http://php.net/manual/zh/function.serialize.php" target="_blank" rel="noopener">serialize()</a>来返回一个包含字节流的字符串来表示。<a href="http://php.net/manual/zh/function.unserialize.php" target="_blank" rel="noopener">unserialize()</a>函数能够重新把字符串变回php原来的值。 序列化一个对象将会保存对象的所有变量，但是不会保存对象的方法，只会保存类的名字。</p>
+<p>简单的理解序列化：就是把一个类的实例变成一个字符串。</p>
+<p>简单的理解反序列化：把一个特殊的字符串转换成一个实例。</p>
+<p>代码：</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029175931-PHP反序列化漏洞详细教程及实例（上）-6.png" alt></p>
+<p>输出结果：</p>
+<p><img src="http://img1.liulangxingqiu.com/20181029175953-PHP反序列化漏洞详细教程及实例（上）-5.png" alt></p>
+<p><strong>高亮部分即为序列化后的对象。</strong></p>
+<p>反序列化的操作：</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918019-PHP反序列化漏洞详细教程及实例（上）-7.png" alt="2018102918019-PHP反序列化漏洞详细教程及实例（上）-7"></p>
+<p>代码执行效果：</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918026-PHP反序列化漏洞详细教程及实例（上）-8.png" alt="2018102918026-PHP反序列化漏洞详细教程及实例（上）-8"></p>
+<p>想要深入了解序列化后的字符的具体意义，请参考这个链接：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://php.net/manual/zh/function.serialize.php</span><br></pre></td></tr></table></figure></p>
+<h2 id="小试牛刀"><a href="#小试牛刀" class="headerlink" title="小试牛刀"></a>小试牛刀</h2><p>通过上面的前置知识，相信大家已经对PHP序列化相关的内容有一个初步的认识。下面来开始分析一个简单的例子。</p>
+<p><img src="http://img1.liulangxingqiu.com/201810291810-PHP反序列化漏洞详细教程及实例（上）-9.png" alt="201810291810-PHP反序列化漏洞详细教程及实例（上）-9"></p>
+<p>这是一个WTFLog 类，调用 loginfo 方法会记录一条记录到access.log文件中，WTF的地方是，当这个类完成它的使命的时候（exit），会删除掉它所记录的文件。</p>
+<p><img src="http://img1.liulangxingqiu.com/201810291819-PHP反序列化漏洞详细教程及实例（上）-11.png" alt="201810291819-PHP反序列化漏洞详细教程及实例（上）-11"></p>
+<p>这里有一个“正常”的业务，pets.php ：</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918115-PHP反序列化漏洞详细教程及实例（上）-10.png" alt="2018102918115-PHP反序列化漏洞详细教程及实例（上）-10"></p>
+<p>该代码的业务目标是从用户处收集序列化后的数据，并进行一些操作。</p>
+<p><strong>该代码段的特点是：直接使用客户端可以控制的输入点（$_GET[‘pet_serialized]），在不进行验证的情况下，直接实例化了这段代码！！</strong></p>
+<p>看我们如何利用这个危险的输入点：</p>
+<p>还记得刚才的WTFLog吧！</p>
+<p>先新创建一个新的poc.php，把 log.php 内的WTFLog类引入进来。</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918146-PHP反序列化漏洞详细教程及实例（上）-12.png" alt="2018102918146-PHP反序列化漏洞详细教程及实例（上）-12"></p>
+<p>index.php 是一个很有用的文件，会输出一句话。</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918153-PHP反序列化漏洞详细教程及实例（上）-13.png" alt="2018102918153-PHP反序列化漏洞详细教程及实例（上）-13"></p>
+<p>运行 poc.php ，得到我们想要的序列化后的WTFLog 字符串。</p>
+<p><img src="http://img1.liulangxingqiu.com/201810291822-PHP反序列化漏洞详细教程及实例（上）-15.png" alt="201810291822-PHP反序列化漏洞详细教程及实例（上）-15"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">O:6:&apos;WTFLog&apos;:1:&#123;s:8:&apos;filename&apos;;s:9:&apos;index.php&apos;;&#125;</span><br></pre></td></tr></table></figure>
+<p>这里利用这个字符串，去调用pets.php</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918225-PHP反序列化漏洞详细教程及实例（上）-17.png" alt="2018102918225-PHP反序列化漏洞详细教程及实例（上）-17"></p>
+<p>本来要删除掉access.log这个文件，却删除了我们的重要文件index.php。</p>
+<p>验证一下：</p>
+<p><img src="http://img1.liulangxingqiu.com/2018102918229-PHP反序列化漏洞详细教程及实例（上）-18.png" alt="2018102918229-PHP反序列化漏洞详细教程及实例（上）-18"></p>
+<p>到了这一步，漏洞已经利用完成。</p>
+<p>回顾一下整个漏洞利用的过程：</p>
+<ol>
+<li>需要有一个漏洞触发点 pets.php 内的 $pet = unserialize($_GET[‘pet_serialized’]);</li>
+<li>需要有一个相关联的，有魔术方法（会被自动调用）的类。log.php （WTFLog 内的__destruct函数）</li>
+<li>漏洞的效果取决于__destruct 这个魔术函数内的操作，这里的是可以操控的可以删除的log 的 filename。</li>
+<li>构建poc.php ，利用程序，先序列化后，从可控输入$_GET[‘pet_serialized’]输入进去。</li>
+<li>完成。</li>
+</ol>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>大家从上面的过程中对PHP反序列化的方式及危害有了一个比较直观的理解了。那如何利用PHP反序列化这个漏洞来做更多的事情呢，这里需要看更多的魔术方法的自动触发的情景，根据不同的使用情景（代码实现方式），来定制我们的Poc，如果可控代码中，存在call_user_func() 这个函数，可以实现通过PHP反序列化漏洞来进行任意代码执行。</p>
+<h1 id="结语的下一步"><a href="#结语的下一步" class="headerlink" title="结语的下一步"></a>结语的下一步</h1><p>下一篇文章将会分析一下Typecho 这个很受欢迎的Blog程序的反序列化漏洞的利用。</p>
+<p>Thanks for watching.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hi-wenr0.github.io/2017/12/25/《绝地求生：大逃杀》-死亡总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WenR0">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WenR0's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/12/25/《绝地求生：大逃杀》-死亡总结/" class="post-title-link" itemprop="url">《绝地求生：大逃杀》 死亡总结</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-12-25 00:28:33" itemprop="dateCreated datePublished" datetime="2017-12-25T00:28:33+08:00">2017-12-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-20 14:47:57" itemprop="dateModified" datetime="2019-05-20T14:47:57+08:00">2019-05-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>玩一个游戏，就要好好的玩，总结自己的不足，这样才会进步，吃到!🐔</p>
+<p>下面是我死亡时候的总结。前车之鉴，后车之师。</p>
+<ol>
+<li>在无掩体的情况下被打死（应对：冲圈先找掩体</li>
+<li>站着不动刚枪被打死（应对：蛇皮走位</li>
+<li>有房子的时候，没有躲进房子，被打死（应对：进房子</li>
+<li>在楼房楼梯正上面。被人爆头打死（应对：进房间，找掩体，能看到楼梯的方向来阴死对方。</li>
+<li>在局势不明朗的时候，不要先开枪，除非有把握一枪爆头。</li>
+<li>下车一定要看速度！</li>
+<li>对枪，有掩体的时候才要移动来打，不然不要动，因为可能对方就是少打了一枪就死了。</li>
+<li>及时掌握自己手里枪的发射状态，是单点，连发，还是自动。很关键。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">WenR0</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WenR0</span>
+
+  
+
+  
 </div>
 
 
-
-    <!-- Footer -->
-    <hr>
-
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    
-
-                    
-
-                    
-                        <li>
-                            <a href="https://github.com/hi-wenr0" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    
-
-                    
-
-                    
-                        <li>
-                            <a href="mailto:mr.wenr0@gmail.com" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    
-
-                    
-                </ul>
-                <p class="copyright text-muted">&copy; 2019 WenR0<br></p>
-                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
-                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
-            </div>
-        </div>
-    </div>
-</footer>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
 
 
-    <!-- After footer scripts -->
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
     
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
 
-<!-- Bootstrap -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    
 
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+    
 
-<!-- Disqus Comments -->
+    
+  </div>
 
-<script type="text/javascript">
-    var disqus_shortname = 'wenr0u';
+  
 
-    (function(){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
 
-</body>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+
+  
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
 </html>
